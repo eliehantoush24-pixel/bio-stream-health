@@ -9,6 +9,7 @@ import PatientProfile from "./pages/PatientProfile";
 import DoctorDashboard from "./pages/DoctorDashboard";
 import AlertsPage from "./pages/AlertsPage";
 import DevicePage from "./pages/DevicePage";
+import ApiKeysPage from "./pages/ApiKeysPage";
 import ChatPage from "./pages/ChatPage";
 import NotFound from "./pages/NotFound";
 
