@@ -9,6 +9,7 @@ import PatientProfile from "./pages/PatientProfile";
 import DoctorDashboard from "./pages/DoctorDashboard";
 import AlertsPage from "./pages/AlertsPage";
 import DevicePage from "./pages/DevicePage";
+import ApiKeysPage from "./pages/ApiKeysPage";
 import ChatPage from "./pages/ChatPage";
 import NotFound from "./pages/NotFound";
 
@@ -27,6 +28,7 @@ const App = () => (
           <Route path="/doctor" element={<DoctorDashboard />} />
           <Route path="/alerts" element={<AlertsPage />} />
           <Route path="/device" element={<DevicePage />} />
+          <Route path="/api-keys" element={<ApiKeysPage />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

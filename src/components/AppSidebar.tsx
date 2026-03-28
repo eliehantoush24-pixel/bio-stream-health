@@ -1,5 +1,5 @@
 import {
-  Activity, Heart, Users, Bell, Cpu, MessageCircle, User, LogOut, LayoutDashboard,
+  Activity, Heart, Users, Bell, Cpu, MessageCircle, User, LogOut, LayoutDashboard, Key,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -14,6 +14,7 @@ const mainItems = [
   { title: "Doctor View", url: "/doctor", icon: Users },
   { title: "Alerts", url: "/alerts", icon: Bell },
   { title: "Device", url: "/device", icon: Cpu },
+  { title: "API Keys", url: "/api-keys", icon: Key },
   { title: "Chat", url: "/chat", icon: MessageCircle },
 ];
 
