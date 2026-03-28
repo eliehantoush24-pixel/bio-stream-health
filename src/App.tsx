@@ -28,6 +28,7 @@ const App = () => (
           <Route path="/doctor" element={<DoctorDashboard />} />
           <Route path="/alerts" element={<AlertsPage />} />
           <Route path="/device" element={<DevicePage />} />
+          <Route path="/api-keys" element={<ApiKeysPage />} />
           <Route path="/chat" element={<ChatPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
