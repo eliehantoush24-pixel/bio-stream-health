@@ -1,2 +1,2 @@
-import LoginPage from "./LoginPage";
-export default LoginPage;
+import Dashboard from "./Dashboard";
+export default Dashboard;
