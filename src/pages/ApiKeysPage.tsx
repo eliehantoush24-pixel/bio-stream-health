@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Copy, Eye, EyeOff, RefreshCw, Key, Shield, Trash2, Plus, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { toast } from "@/hooks/use-toast";
+import { useI18n } from "@/hooks/useI18n";
 
 interface ApiKey {
   id: string;
@@ -24,6 +25,7 @@ const generateKey = () => {
 };
 
 export default function ApiKeysPage() {
+  const { t } = useI18n();
   const [keys, setKeys] = useState<ApiKey[]>([
     {
       id: "1",
@@ -55,15 +57,15 @@ export default function ApiKeysPage() {
   const copyKey = useCallback((id: string, key: string) => {
     navigator.clipboard.writeText(key);
     setCopiedId(id);
-    toast({ title: "Copied!", description: "API key copied to clipboard." });
+    toast({ title: t("Copied!"), description: t("API key copied to clipboard.") });
     setTimeout(() => setCopiedId(null), 2000);
-  }, []);
+  }, [t]);
 
   const regenerateKey = (id: string) => {
     setKeys((prev) =>
       prev.map((k) => (k.id === id ? { ...k, key: generateKey(), lastUsed: null } : k))
     );
-    toast({ title: "Key regenerated", description: "Your old key is now invalid." });
+    toast({ title: t("Key regenerated"), description: t("Your old key is now invalid.") });
   };
 
   const generateNewKey = (type: "write" | "read") => {
@@ -76,17 +78,17 @@ export default function ApiKeysPage() {
       lastUsed: null,
     };
     setKeys((prev) => [...prev, newKey]);
-    toast({ title: "Key generated", description: `New ${type} API key created.` });
+    toast({ title: t("Key generated"), description: `${type} API key created.` });
   };
 
   const deleteKey = (id: string) => {
     setKeys((prev) => prev.filter((k) => k.id !== id));
-    toast({ title: "Key deleted", description: "The API key has been removed." });
+    toast({ title: t("Key deleted"), description: t("The API key has been removed.") });
   };
 
   const saveExternalKey = () => {
     if (!externalKey.trim() || !externalLabel.trim()) {
-      toast({ title: "Missing fields", description: "Please enter both a label and key.", variant: "destructive" });
+      toast({ title: t("Missing fields"), description: t("Please enter both a label and key."), variant: "destructive" });
       return;
     }
     const newKey: ApiKey = {
@@ -100,7 +102,7 @@ export default function ApiKeysPage() {
     setKeys((prev) => [...prev, newKey]);
     setExternalKey("");
     setExternalLabel("");
-    toast({ title: "Key saved", description: "External API key has been stored." });
+    toast({ title: t("Key saved"), description: t("External API key has been stored.") });
   };
 
   const maskKey = (key: string) => key.slice(0, 6) + "••••••••••••••••••" + key.slice(-4);
@@ -109,19 +111,19 @@ export default function ApiKeysPage() {
     <DashboardLayout>
       <div className="space-y-6">
         <div>
-          <h1 className="text-2xl font-bold font-display">API Keys</h1>
+          <h1 className="text-2xl font-bold font-display">{t("API Keys")}</h1>
           <p className="text-sm text-muted-foreground">
-            Manage authentication keys for your Arduino device and external services
+            {t("Manage authentication keys for your Arduino device and external services")}
           </p>
         </div>
 
         {/* Quick actions */}
         <div className="flex flex-wrap gap-2">
           <Button size="sm" onClick={() => generateNewKey("write")} className="gap-1.5">
-            <Plus className="h-4 w-4" /> Generate Write Key
+            <Plus className="h-4 w-4" /> {t("Generate Write Key")}
           </Button>
           <Button size="sm" variant="outline" onClick={() => generateNewKey("read")} className="gap-1.5">
-            <Plus className="h-4 w-4" /> Generate Read Key
+            <Plus className="h-4 w-4" /> {t("Generate Read Key")}
           </Button>
         </div>
 
@@ -173,9 +175,9 @@ export default function ApiKeysPage() {
                     </div>
                   </div>
 
-                  <div className="flex gap-4 mt-2 text-[11px] text-muted-foreground pl-12">
-                    <span>Created: {apiKey.createdAt}</span>
-                    <span>Last used: {apiKey.lastUsed ?? "Never"}</span>
+                  <div className="flex gap-4 mt-2 text-[11px] text-muted-foreground ps-12">
+                    <span>{t("Created")}: {apiKey.createdAt}</span>
+                    <span>{t("Last used")}: {apiKey.lastUsed ?? t("Never")}</span>
                   </div>
                 </CardContent>
               </Card>
@@ -187,35 +189,35 @@ export default function ApiKeysPage() {
         <Card>
           <CardHeader>
             <CardTitle className="text-sm flex items-center gap-2">
-              <Shield className="h-4 w-4 text-primary" /> Add External API Key
+              <Shield className="h-4 w-4 text-primary" /> {t("Add External API Key")}
             </CardTitle>
             <CardDescription>
-              Paste an API key from a third-party service (e.g., cloud MQTT broker, webhook endpoint)
+              {t("Paste an API key from a third-party service (e.g., cloud MQTT broker, webhook endpoint)")}
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid sm:grid-cols-[1fr_2fr_auto] gap-3 items-end">
               <div className="space-y-1.5">
-                <Label htmlFor="ext-label" className="text-xs">Label</Label>
+                <Label htmlFor="ext-label" className="text-xs">{t("Label")}</Label>
                 <Input
                   id="ext-label"
-                  placeholder="e.g. MQTT Broker"
+                  placeholder={t("e.g. MQTT Broker")}
                   value={externalLabel}
                   onChange={(e) => setExternalLabel(e.target.value)}
                 />
               </div>
               <div className="space-y-1.5">
-                <Label htmlFor="ext-key" className="text-xs">API Key</Label>
+                <Label htmlFor="ext-key" className="text-xs">{t("API Keys")}</Label>
                 <Input
                   id="ext-key"
                   type="password"
-                  placeholder="Paste your key here"
+                  placeholder={t("Paste your key here")}
                   value={externalKey}
                   onChange={(e) => setExternalKey(e.target.value)}
                 />
               </div>
               <Button onClick={saveExternalKey} className="gap-1.5">
-                <Plus className="h-4 w-4" /> Save Key
+                <Plus className="h-4 w-4" /> {t("Save Key")}
               </Button>
             </div>
           </CardContent>
@@ -224,7 +226,7 @@ export default function ApiKeysPage() {
         {/* Usage guide */}
         <Card>
           <CardHeader>
-            <CardTitle className="text-sm">Arduino Integration Guide</CardTitle>
+            <CardTitle className="text-sm">{t("Arduino Integration Guide")}</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="bg-muted rounded-lg p-4 font-mono text-xs leading-relaxed overflow-x-auto">
