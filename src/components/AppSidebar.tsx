@@ -7,21 +7,23 @@ import {
   Sidebar, SidebarContent, SidebarGroup, SidebarGroupContent, SidebarGroupLabel,
   SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarFooter, useSidebar,
 } from "@/components/ui/sidebar";
+import { useI18n } from "@/hooks/useI18n";
 
 const mainItems = [
-  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
-  { title: "My Profile", url: "/profile", icon: User },
-  { title: "Doctor View", url: "/doctor", icon: Users },
-  { title: "Alerts", url: "/alerts", icon: Bell },
-  { title: "Device", url: "/device", icon: Cpu },
-  { title: "API Keys", url: "/api-keys", icon: Key },
-  { title: "Chat", url: "/chat", icon: MessageCircle },
+  { titleKey: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
+  { titleKey: "My Profile", url: "/profile", icon: User },
+  { titleKey: "Doctor View", url: "/doctor", icon: Users },
+  { titleKey: "Alerts", url: "/alerts", icon: Bell },
+  { titleKey: "Device", url: "/device", icon: Cpu },
+  { titleKey: "API Keys", url: "/api-keys", icon: Key },
+  { titleKey: "Chat", url: "/chat", icon: MessageCircle },
 ];
 
 export function AppSidebar() {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   const location = useLocation();
+  const { t } = useI18n();
 
   return (
     <Sidebar collapsible="icon">
@@ -33,23 +35,23 @@ export function AppSidebar() {
             </div>
             {!collapsed && (
               <div>
-                <h2 className="text-sm font-semibold text-sidebar-accent-foreground font-display">VitaLink</h2>
-                <p className="text-[10px] text-sidebar-foreground">Health Monitor</p>
+                <h2 className="text-sm font-semibold text-sidebar-accent-foreground font-display">{t("VitaLink")}</h2>
+                <p className="text-[10px] text-sidebar-foreground">{t("Health Monitor")}</p>
               </div>
             )}
           </div>
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+          <SidebarGroupLabel>{t("Navigation")}</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {mainItems.map((item) => (
-                <SidebarMenuItem key={item.title}>
+                <SidebarMenuItem key={item.titleKey}>
                   <SidebarMenuButton asChild isActive={location.pathname === item.url}>
                     <NavLink to={item.url} end activeClassName="bg-sidebar-accent text-sidebar-primary">
                       <item.icon className="h-4 w-4" />
-                      {!collapsed && <span>{item.title}</span>}
+                      {!collapsed && <span>{t(item.titleKey)}</span>}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -65,7 +67,7 @@ export function AppSidebar() {
             <SidebarMenuButton asChild>
               <NavLink to="/" activeClassName="">
                 <LogOut className="h-4 w-4" />
-                {!collapsed && <span>Logout</span>}
+                {!collapsed && <span>{t("Logout")}</span>}
               </NavLink>
             </SidebarMenuButton>
           </SidebarMenuItem>
