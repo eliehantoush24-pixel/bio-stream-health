@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { I18nProvider } from "@/hooks/useI18n";
 import LoginPage from "./pages/LoginPage";
 import Dashboard from "./pages/Dashboard";
 import PatientProfile from "./pages/PatientProfile";
@@ -17,23 +18,25 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/profile" element={<PatientProfile />} />
-          <Route path="/doctor" element={<DoctorDashboard />} />
-          <Route path="/alerts" element={<AlertsPage />} />
-          <Route path="/device" element={<DevicePage />} />
-          <Route path="/api-keys" element={<ApiKeysPage />} />
-          <Route path="/chat" element={<ChatPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
+    <I18nProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/profile" element={<PatientProfile />} />
+            <Route path="/doctor" element={<DoctorDashboard />} />
+            <Route path="/alerts" element={<AlertsPage />} />
+            <Route path="/device" element={<DevicePage />} />
+            <Route path="/api-keys" element={<ApiKeysPage />} />
+            <Route path="/chat" element={<ChatPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </I18nProvider>
   </QueryClientProvider>
 );
 

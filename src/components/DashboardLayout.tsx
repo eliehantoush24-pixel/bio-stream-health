@@ -4,9 +4,12 @@ import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LangToggle } from "@/components/LangToggle";
+import { useI18n } from "@/hooks/useI18n";
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
+  const { t } = useI18n();
 
   return (
     <SidebarProvider>
@@ -16,9 +19,10 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
           <header className="h-14 flex items-center justify-between border-b bg-card px-4 shrink-0">
             <div className="flex items-center gap-2">
               <SidebarTrigger />
-              <span className="text-sm text-muted-foreground hidden sm:inline">IoT Health Monitor</span>
+              <span className="text-sm text-muted-foreground hidden sm:inline">{t("IoT Health Monitor")}</span>
             </div>
             <div className="flex items-center gap-2">
+              <LangToggle />
               <ThemeToggle />
               <Button variant="ghost" size="icon" className="relative" onClick={() => navigate("/alerts")}>
                 <Bell className="h-4 w-4" />
