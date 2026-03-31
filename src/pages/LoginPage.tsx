@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Activity, Heart } from "lucide-react";
+import { Heart, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -34,10 +34,10 @@ export default function LoginPage() {
         {/* Logo */}
         <div className="flex items-center justify-center gap-3 mb-8">
           <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary shadow-lg">
-            <Activity className="h-6 w-6 text-primary-foreground" />
+            <Heart className="h-6 w-6 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-display">VitaLink</h1>
+            <h1 className="text-2xl font-bold text-display">HealthLink</h1>
             <p className="text-xs text-muted-foreground">IoT Health Monitor</p>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default function LoginPage() {
                         className="w-full"
                         onClick={() => setRole("doctor")}
                       >
-                        <Activity className="h-4 w-4 mr-2" />
+                        <Stethoscope className="h-4 w-4 mr-2" />
                         Doctor
                       </Button>
                     </div>

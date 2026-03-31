@@ -23,7 +23,7 @@ const translations: Record<string, Record<Lang, string>> = {
   "Chat": { en: "Chat", ar: "المحادثة" },
   "Navigation": { en: "Navigation", ar: "التنقل" },
   "Logout": { en: "Logout", ar: "تسجيل الخروج" },
-  "VitaLink": { en: "VitaLink", ar: "فيتالينك" },
+  "HealthLink": { en: "HealthLink", ar: "هيلث لينك" },
   "Health Monitor": { en: "Health Monitor", ar: "مراقب الصحة" },
 
   // Dashboard

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Activity, Heart, Shield, Wifi, ArrowRight, Stethoscope } from "lucide-react";
+import { Heart, Shield, Wifi, ArrowRight, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useI18n } from "@/hooks/useI18n";
@@ -31,9 +31,9 @@ export default function HomePage() {
       <header className="relative z-10 flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary shadow-lg">
-            <Activity className="h-5 w-5 text-primary-foreground" />
+            <Heart className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="text-xl font-bold font-display">VitaLink</span>
+          <span className="text-xl font-bold font-display">HealthLink</span>
         </div>
         <div className="flex items-center gap-2">
           <LangToggle />
@@ -122,7 +122,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="relative z-10 text-center py-6 text-xs text-muted-foreground/60">
-        © 2026 VitaLink — {t("IoT Health Monitoring System")}
+        © 2026 HealthLink — {t("IoT Health Monitoring System")}
       </footer>
     </div>
   );
