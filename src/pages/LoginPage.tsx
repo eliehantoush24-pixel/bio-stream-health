@@ -84,7 +84,7 @@ export default function LoginPage() {
                         className="w-full"
                         onClick={() => setRole("doctor")}
                       >
-                        <Activity className="h-4 w-4 mr-2" />
+                        <Stethoscope className="h-4 w-4 mr-2" />
                         Doctor
                       </Button>
                     </div>
