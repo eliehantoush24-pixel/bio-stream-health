@@ -122,7 +122,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="relative z-10 text-center py-6 text-xs text-muted-foreground/60">
-        © 2026 VitaLink — {t("IoT Health Monitoring System")}
+        © 2026 HealthLink — {t("IoT Health Monitoring System")}
       </footer>
     </div>
   );

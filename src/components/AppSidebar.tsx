@@ -35,7 +35,7 @@ export function AppSidebar() {
             </div>
             {!collapsed && (
               <div>
-                <h2 className="text-sm font-semibold text-sidebar-accent-foreground font-display">{t("VitaLink")}</h2>
+                <h2 className="text-sm font-semibold text-sidebar-accent-foreground font-display"><h2 className="text-sm font-semibold text-sidebar-accent-foreground font-display">{t("HealthLink")}</h2></h2>
                 <p className="text-[10px] text-sidebar-foreground">{t("Health Monitor")}</p>
               </div>
             )}
