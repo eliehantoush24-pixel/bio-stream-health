@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Activity, Heart, Shield, Wifi, ArrowRight, Stethoscope } from "lucide-react";
+import { Heart, Shield, Wifi, ArrowRight, Stethoscope } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { useI18n } from "@/hooks/useI18n";
