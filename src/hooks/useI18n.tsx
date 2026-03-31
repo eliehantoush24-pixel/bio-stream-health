@@ -120,7 +120,7 @@ const translations: Record<string, Record<Lang, string>> = {
     en: "Seamless Arduino-based sensor integration via WiFi connectivity",
     ar: "تكامل سلس لمستشعرات أردوينو عبر اتصال WiFi",
   },
-
+};
 
 const I18nContext = createContext<I18nContextType | null>(null);
 
