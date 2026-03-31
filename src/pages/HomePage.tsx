@@ -31,9 +31,9 @@ export default function HomePage() {
       <header className="relative z-10 flex items-center justify-between px-6 py-4">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary shadow-lg">
-            <Activity className="h-5 w-5 text-primary-foreground" />
+            <Heart className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="text-xl font-bold font-display">VitaLink</span>
+          <span className="text-xl font-bold font-display">HealthLink</span>
         </div>
         <div className="flex items-center gap-2">
           <LangToggle />
