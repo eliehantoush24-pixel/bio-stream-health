@@ -93,6 +93,33 @@ const translations: Record<string, Record<Lang, string>> = {
   "All": { en: "All", ar: "الكل" },
   "Active": { en: "Active", ar: "نشط" },
   "Resolved": { en: "Resolved", ar: "تم الحل" },
+
+  // Home page
+  "IoT Health": { en: "IoT Health", ar: "صحة إنترنت الأشياء" },
+  "Monitoring System": { en: "Monitoring System", ar: "نظام المراقبة" },
+  "A smart patient monitoring platform powered by Arduino IoT sensors. Track heart rate and blood oxygen levels in real-time with instant alerts for healthcare professionals.": {
+    en: "A smart patient monitoring platform powered by Arduino IoT sensors. Track heart rate and blood oxygen levels in real-time with instant alerts for healthcare professionals.",
+    ar: "منصة ذكية لمراقبة المرضى مدعومة بمستشعرات أردوينو إنترنت الأشياء. تتبع معدل ضربات القلب ومستويات أكسجين الدم في الوقت الفعلي مع تنبيهات فورية للمتخصصين في الرعاية الصحية.",
+  },
+  "Graduation Project": { en: "Graduation Project", ar: "مشروع التخرج" },
+  "IoT Health Monitoring System": { en: "IoT Health Monitoring System", ar: "نظام مراقبة الصحة بإنترنت الأشياء" },
+  "Doctor Login": { en: "Doctor Login", ar: "دخول الطبيب" },
+  "Patient Login": { en: "Patient Login", ar: "دخول المريض" },
+  "Real-time Monitoring": { en: "Real-time Monitoring", ar: "مراقبة في الوقت الفعلي" },
+  "Track heart rate and SpO2 levels continuously with IoT sensors": {
+    en: "Track heart rate and SpO2 levels continuously with IoT sensors",
+    ar: "تتبع معدل ضربات القلب ومستويات SpO2 باستمرار باستخدام مستشعرات إنترنت الأشياء",
+  },
+  "Smart Alerts": { en: "Smart Alerts", ar: "تنبيهات ذكية" },
+  "Get instant notifications when vitals go beyond safe thresholds": {
+    en: "Get instant notifications when vitals go beyond safe thresholds",
+    ar: "احصل على إشعارات فورية عندما تتجاوز العلامات الحيوية الحدود الآمنة",
+  },
+  "IoT Connected": { en: "IoT Connected", ar: "متصل بإنترنت الأشياء" },
+  "Seamless Arduino-based sensor integration via WiFi connectivity": {
+    en: "Seamless Arduino-based sensor integration via WiFi connectivity",
+    ar: "تكامل سلس لمستشعرات أردوينو عبر اتصال WiFi",
+  },
 };
 
 const I18nContext = createContext<I18nContextType | null>(null);
