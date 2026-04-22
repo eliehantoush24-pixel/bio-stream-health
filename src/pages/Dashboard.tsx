@@ -71,9 +71,19 @@ export default function Dashboard() {
       <div className="space-y-6">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-          <div>
-            <h1 className="text-2xl font-bold font-display">{t("Patient Monitor")}</h1>
-            <p className="text-sm text-muted-foreground">{t("Real-time heart rate & blood oxygen tracking")}</p>
+          <div className="flex items-center gap-3">
+            <div className="flex -space-x-2">
+              <div className="h-11 w-11 rounded-2xl bg-heart/10 border border-heart/20 flex items-center justify-center shadow-sm">
+                <Heart className="h-5 w-5 text-heart animate-heartbeat" />
+              </div>
+              <div className="h-11 w-11 rounded-2xl bg-spo2/10 border border-spo2/20 flex items-center justify-center shadow-sm">
+                <Droplets className="h-5 w-5 text-spo2" />
+              </div>
+            </div>
+            <div>
+              <h1 className="text-2xl font-bold font-display">{t("Patient Monitor")}</h1>
+              <p className="text-sm text-muted-foreground">{t("Real-time heart rate & blood oxygen tracking")}</p>
+            </div>
           </div>
           <div className="flex items-center gap-3">
             <Badge variant={isConnected ? "default" : "destructive"} className="gap-1.5">
