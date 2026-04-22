@@ -121,20 +121,6 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: var(--font-body);
-    background-image: url('/src/assets/bg-medical.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background: hsl(var(--background) / 0.85);
-    z-index: -1;
-    pointer-events: none;
   }
 
   h1, h2, h3, h4, h5, h6 {
