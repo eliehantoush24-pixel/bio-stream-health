@@ -66,7 +66,7 @@ export default function Landing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display text-4xl md:text-6xl font-bold tracking-tight text-foreground"
+            className="font-display text-5xl md:text-7xl font-extrabold tracking-tighter text-foreground leading-[1.05] bg-gradient-to-br from-foreground via-foreground to-primary bg-clip-text text-transparent"
           >
             {t("Your Vitals, Always Connected")}
           </motion.h1>
@@ -75,7 +75,7 @@ export default function Landing() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-5 max-w-2xl mx-auto text-base md:text-lg text-muted-foreground leading-relaxed"
+            className="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground leading-relaxed font-light tracking-wide"
           >
             {t("HealthLink is an IoT-powered platform that continuously measures heart rate and blood oxygen using an Arduino sensor, streams readings in real time, and connects patients with doctors for proactive care.")}
           </motion.p>
@@ -89,9 +89,6 @@ export default function Landing() {
             <Button size="lg" className="gap-2 px-7" onClick={() => navigate("/login")}>
               {t("Log In to Platform")}
               <ArrowRight className="h-4 w-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="px-7" onClick={() => navigate("/dashboard")}>
-              {t("Explore Demo")}
             </Button>
           </motion.div>
 
