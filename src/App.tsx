@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { I18nProvider } from "@/hooks/useI18n";
 import LoginPage from "./pages/LoginPage";
 import Landing from "./pages/Landing";
+import Overview from "./pages/Overview";
 import Dashboard from "./pages/Dashboard";
 import PatientProfile from "./pages/PatientProfile";
 import DoctorDashboard from "./pages/DoctorDashboard";
@@ -26,6 +27,7 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Landing />} />
+            <Route path="/overview" element={<Overview />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/profile" element={<PatientProfile />} />
