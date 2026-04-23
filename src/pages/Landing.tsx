@@ -36,9 +36,11 @@ export default function Landing() {
         style={{ backgroundImage: `url(${bg})` }}
         aria-hidden="true"
       />
-      <div className="absolute inset-0 bg-background/70 dark:bg-background/85 backdrop-blur-[2px]" aria-hidden="true" />
+      {/* Layered gradient overlays for a richer medical-tech atmosphere */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-primary/10 dark:from-background/95 dark:via-background/85 dark:to-primary/20 backdrop-blur-[3px]" aria-hidden="true" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--spo2)/0.15),transparent_50%),radial-gradient(ellipse_at_bottom_left,hsl(var(--heart)/0.12),transparent_50%)]" aria-hidden="true" />
 
-      {/* Header */}
+      {/* Header — no login button here, single CTA lives in hero */}
       <header className="relative z-10 flex items-center justify-between px-6 py-4 md:px-10">
         <div className="flex items-center gap-2">
           <div className="h-9 w-9 rounded-xl bg-primary/10 flex items-center justify-center">
@@ -49,9 +51,6 @@ export default function Landing() {
         <div className="flex items-center gap-2">
           <LangToggle />
           <ThemeToggle />
-          <Button variant="outline" size="sm" onClick={() => navigate("/login")}>
-            {t("Log In")}
-          </Button>
         </div>
       </header>
 
