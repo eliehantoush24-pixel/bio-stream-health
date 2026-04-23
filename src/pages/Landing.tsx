@@ -87,7 +87,7 @@ export default function Landing() {
             className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3"
           >
             <Button size="lg" className="gap-2 px-7" onClick={() => navigate("/login")}>
-              {t("Log In to Platform")}
+              {t("Log In")}
               <ArrowRight className="h-4 w-4" />
             </Button>
           </motion.div>
