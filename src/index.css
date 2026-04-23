@@ -144,8 +144,7 @@
     inset: 0;
     z-index: -1;
     pointer-events: none;
-    opacity: var(--ecg-opacity-light, 0.18);
-    transition: opacity 0.3s ease;
+    opacity: 0.18;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='160' viewBox='0 0 600 160'><path d='M0 80 L80 80 L95 80 L105 50 L120 110 L135 30 L150 130 L165 80 L260 80 L275 80 L285 55 L300 105 L315 35 L330 125 L345 80 L460 80 L475 80 L485 60 L500 100 L515 40 L530 120 L545 80 L600 80' fill='none' stroke='hsl(0 85%25 60%25)' stroke-width='1.5' stroke-linejoin='round' stroke-linecap='round'/></svg>");
     background-repeat: repeat;
     background-size: 600px 160px;
@@ -155,11 +154,7 @@
   }
 
   .dark body::after {
-    opacity: var(--ecg-opacity-dark, 0.10);
-  }
-
-  html[data-ecg="off"] body::after {
-    display: none;
+    opacity: 0.10;
   }
 
   @keyframes ecg-scroll {
