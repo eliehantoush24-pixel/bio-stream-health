@@ -14,7 +14,8 @@ export default function LoginPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    navigate("/dashboard");
+    localStorage.setItem("userRole", role);
+    navigate(role === "doctor" ? "/doctor" : "/dashboard");
   };
 
   return (
