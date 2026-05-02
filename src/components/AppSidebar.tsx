@@ -9,14 +9,19 @@ import {
 } from "@/components/ui/sidebar";
 import { useI18n } from "@/hooks/useI18n";
 
-const mainItems = [
+const patientItems = [
   { titleKey: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
   { titleKey: "My Profile", url: "/profile", icon: User },
-  { titleKey: "Doctor View", url: "/doctor", icon: Users },
-  { titleKey: "Alerts", url: "/alerts", icon: Bell },
   { titleKey: "Device", url: "/device", icon: Cpu },
   { titleKey: "API Keys", url: "/api-keys", icon: Key },
   { titleKey: "Chat", url: "/chat", icon: MessageCircle },
+];
+
+const doctorItems = [
+  { titleKey: "Doctor View", url: "/doctor", icon: Users },
+  { titleKey: "Alerts", url: "/alerts", icon: Bell },
+  { titleKey: "Chat", url: "/chat", icon: MessageCircle },
+  { titleKey: "My Profile", url: "/profile", icon: User },
 ];
 
 export function AppSidebar() {
@@ -24,6 +29,8 @@ export function AppSidebar() {
   const collapsed = state === "collapsed";
   const location = useLocation();
   const { t } = useI18n();
+  const role = (typeof window !== "undefined" && localStorage.getItem("userRole")) === "doctor" ? "doctor" : "patient";
+  const mainItems = role === "doctor" ? doctorItems : patientItems;
 
   return (
     <Sidebar collapsible="icon">
@@ -65,7 +72,7 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <NavLink to="/" activeClassName="">
+              <NavLink to="/" activeClassName="" onClick={() => localStorage.removeItem("userRole")}>
                 <LogOut className="h-4 w-4" />
                 {!collapsed && <span>{t("Logout")}</span>}
               </NavLink>
