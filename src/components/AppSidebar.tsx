@@ -72,7 +72,7 @@ export function AppSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton asChild>
-              <NavLink to="/" activeClassName="">
+              <NavLink to="/" activeClassName="" onClick={() => localStorage.removeItem("userRole")}>
                 <LogOut className="h-4 w-4" />
                 {!collapsed && <span>{t("Logout")}</span>}
               </NavLink>
