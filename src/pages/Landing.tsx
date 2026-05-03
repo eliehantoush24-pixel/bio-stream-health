@@ -30,15 +30,18 @@ export default function Landing() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background image with adaptive overlay */}
+      {/* Background image with refined adaptive overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center scale-105"
         style={{ backgroundImage: `url(${bg})` }}
         aria-hidden="true"
       />
-      {/* Layered gradient overlays for a richer medical-tech atmosphere */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-primary/10 dark:from-background/95 dark:via-background/85 dark:to-primary/20 backdrop-blur-[3px]" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--spo2)/0.15),transparent_50%),radial-gradient(ellipse_at_bottom_left,hsl(var(--heart)/0.12),transparent_50%)]" aria-hidden="true" />
+      {/* Soft frosted layer — lets the medical imagery breathe through */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/45 to-background/65 dark:from-background/75 dark:via-background/55 dark:to-background/80 backdrop-blur-[6px] backdrop-saturate-150" aria-hidden="true" />
+      {/* Subtle tinted radial glows for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--chart-spo2)/0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,hsl(var(--chart-heart)/0.10),transparent_55%)]" aria-hidden="true" />
+      {/* Faint top-to-bottom vignette for content legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40" aria-hidden="true" />
 
       {/* Header — no login button here, single CTA lives in hero */}
       <header className="relative z-10 flex items-center justify-between px-6 py-4 md:px-10">
