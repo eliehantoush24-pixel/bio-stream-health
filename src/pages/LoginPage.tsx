@@ -10,12 +10,10 @@ import { motion } from "framer-motion";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const [role, setRole] = useState<"patient" | "doctor">("patient");
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem("userRole", role);
-    navigate(role === "doctor" ? "/doctor" : "/dashboard");
+    localStorage.setItem("userRole", "patient");
+    navigate("/dashboard");
   };
 
   return (
