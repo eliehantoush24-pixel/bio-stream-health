@@ -64,31 +64,6 @@ export default function LoginPage() {
                     <Input id="password" type="password" defaultValue="password" />
                   </div>
 
-                  {/* Role selection */}
-                  <div className="space-y-2">
-                    <Label>I am a</Label>
-                    <div className="grid grid-cols-2 gap-2">
-                      <Button
-                        type="button"
-                        variant={role === "patient" ? "default" : "outline"}
-                        className="w-full"
-                        onClick={() => setRole("patient")}
-                      >
-                        <Heart className="h-4 w-4 mr-2" />
-                        Patient
-                      </Button>
-                      <Button
-                        type="button"
-                        variant={role === "doctor" ? "default" : "outline"}
-                        className="w-full"
-                        onClick={() => setRole("doctor")}
-                      >
-                        <Activity className="h-4 w-4 mr-2" />
-                        Doctor
-                      </Button>
-                    </div>
-                  </div>
-
                   <Button type="submit" className="w-full">
                     Sign In
                   </Button>
