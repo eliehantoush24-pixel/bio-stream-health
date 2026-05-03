@@ -90,17 +90,6 @@ export default function LoginPage() {
                     <Label>Password</Label>
                     <Input type="password" />
                   </div>
-                  <div className="space-y-2">
-                    <Label>I am a</Label>
-                    <div className="grid grid-cols-2 gap-2">
-                      <Button type="button" variant={role === "patient" ? "default" : "outline"} className="w-full" onClick={() => setRole("patient")}>
-                        Patient
-                      </Button>
-                      <Button type="button" variant={role === "doctor" ? "default" : "outline"} className="w-full" onClick={() => setRole("doctor")}>
-                        Doctor
-                      </Button>
-                    </div>
-                  </div>
                   <Button type="submit" className="w-full">Create Account</Button>
                 </form>
               </TabsContent>
