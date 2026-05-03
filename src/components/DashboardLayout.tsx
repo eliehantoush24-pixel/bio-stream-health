@@ -22,7 +22,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               <span className="text-sm text-muted-foreground hidden sm:inline">{t("IoT Health Monitor")}</span>
             </div>
             <div className="flex items-center gap-2">
-              <ThemeToggle>
+              <ThemeToggle />
               <Button variant="ghost" size="icon" className="relative" onClick={() => navigate("/alerts")}>
                 <Bell className="h-4 w-4" />
                 <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-critical" />
