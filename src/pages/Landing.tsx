@@ -30,15 +30,18 @@ export default function Landing() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background image with adaptive overlay */}
+      {/* Background image with refined adaptive overlay */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center scale-105"
         style={{ backgroundImage: `url(${bg})` }}
         aria-hidden="true"
       />
-      {/* Layered gradient overlays for a richer medical-tech atmosphere */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-primary/10 dark:from-background/95 dark:via-background/85 dark:to-primary/20 backdrop-blur-[3px]" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--spo2)/0.15),transparent_50%),radial-gradient(ellipse_at_bottom_left,hsl(var(--heart)/0.12),transparent_50%)]" aria-hidden="true" />
+      {/* Soft frosted layer — lets the medical imagery breathe through */}
+      <div className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/45 to-background/65 dark:from-background/75 dark:via-background/55 dark:to-background/80 backdrop-blur-[6px] backdrop-saturate-150" aria-hidden="true" />
+      {/* Subtle tinted radial glows for depth */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--chart-spo2)/0.12),transparent_55%),radial-gradient(ellipse_at_bottom_left,hsl(var(--chart-heart)/0.10),transparent_55%)]" aria-hidden="true" />
+      {/* Faint top-to-bottom vignette for content legibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40" aria-hidden="true" />
 
       {/* Header — no login button here, single CTA lives in hero */}
       <header className="relative z-10 flex items-center justify-between px-6 py-4 md:px-10">
@@ -157,7 +160,7 @@ export default function Landing() {
           </div>
 
           {/* Detailed Mission Objectives */}
-          <div className="bg-primary/5 rounded-2xl p-8 md:p-12 border border-primary/10">
+          <div className="bg-card/40 dark:bg-card/30 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-border/40 shadow-sm">
             <div className="text-center mb-10">
               <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">{t("Our Mission")}</h3>
               <p className="mt-3 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -172,7 +175,7 @@ export default function Landing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-background/80 backdrop-blur-sm rounded-xl p-5 border border-border/50 hover:border-primary/30 transition-colors"
+                  className="bg-background/40 dark:bg-background/30 backdrop-blur-sm rounded-xl p-5 border border-border/40 hover:border-primary/40 hover:bg-background/55 transition-colors"
                 >
                   <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs text-primary font-bold">
