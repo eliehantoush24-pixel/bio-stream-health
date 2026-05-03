@@ -160,7 +160,7 @@ export default function Landing() {
           </div>
 
           {/* Detailed Mission Objectives */}
-          <div className="bg-primary/5 rounded-2xl p-8 md:p-12 border border-primary/10">
+          <div className="bg-card/40 dark:bg-card/30 backdrop-blur-md rounded-2xl p-8 md:p-12 border border-border/40 shadow-sm">
             <div className="text-center mb-10">
               <h3 className="font-display text-xl md:text-2xl font-bold text-foreground">{t("Our Mission")}</h3>
               <p className="mt-3 text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -175,7 +175,7 @@ export default function Landing() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-background/80 backdrop-blur-sm rounded-xl p-5 border border-border/50 hover:border-primary/30 transition-colors"
+                  className="bg-background/40 dark:bg-background/30 backdrop-blur-sm rounded-xl p-5 border border-border/40 hover:border-primary/40 hover:bg-background/55 transition-colors"
                 >
                   <h4 className="font-semibold text-foreground mb-2 flex items-center gap-2">
                     <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs text-primary font-bold">
