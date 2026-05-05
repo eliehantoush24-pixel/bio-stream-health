@@ -48,6 +48,7 @@ export default function Landing() {
           <span className="font-display font-bold text-lg">HealthLink</span>
         </div>
         <div className="flex items-center gap-2">
+          <Button variant="ghost" size="sm" onClick={() => navigate("/contact")}>{t("Contact Us")}</Button>
           <ThemeToggle />
         </div>
       </header>
