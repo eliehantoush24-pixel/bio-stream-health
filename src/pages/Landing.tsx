@@ -205,7 +205,7 @@ export default function Landing() {
       </main>
 
       <footer className="relative z-10 border-t border-border/50 py-5 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} HealthLink · {t("IoT Health Monitor")}
+        © {new Date().getFullYear()} HealthLink · {t("IoT Health Monitor")} · <button onClick={() => navigate("/contact")} className="underline hover:text-primary transition-colors">{t("Contact Us")}</button>
       </footer>
     </div>
   );
