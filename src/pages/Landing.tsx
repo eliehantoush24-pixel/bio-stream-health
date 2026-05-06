@@ -48,7 +48,6 @@ export default function Landing() {
           <span className="font-display font-bold text-lg">HealthLink</span>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" onClick={() => navigate("/contact")}>{t("Contact Us")}</Button>
           <ThemeToggle />
         </div>
       </header>
@@ -205,7 +204,7 @@ export default function Landing() {
       </main>
 
       <footer className="relative z-10 border-t border-border/50 py-5 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} HealthLink · {t("IoT Health Monitor")} · <button onClick={() => navigate("/contact")} className="underline hover:text-primary transition-colors">{t("Contact Us")}</button>
+        © {new Date().getFullYear()} HealthLink · {t("IoT Health Monitor")}
       </footer>
     </div>
   );
