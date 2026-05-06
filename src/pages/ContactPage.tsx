@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { z } from "zod";
 import { motion } from "framer-motion";
-import { Heart, Mail, Phone, MapPin, Send, ArrowLeft, MessageCircle, Clock } from "lucide-react";
+import { Mail, Phone, MapPin, Send, MessageCircle, Clock } from "lucide-react";
+import { DashboardLayout } from "@/components/DashboardLayout";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { ThemeToggle } from "@/components/ThemeToggle";
 import { useToast } from "@/hooks/use-toast";
 
 const contactSchema = z.object({
@@ -55,52 +54,26 @@ export default function ContactPage() {
   ];
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-background/40 via-transparent to-primary/5 dark:from-background/50 dark:via-transparent dark:to-primary/10" aria-hidden="true" />
-
-      <header className="relative z-10 flex items-center justify-between px-6 py-4 md:px-10">
-        <Link to="/" className="flex items-center gap-2">
-          <div className="h-9 w-9 rounded-xl bg-primary/10 flex items-center justify-center">
-            <Heart className="h-5 w-5 text-primary" />
-          </div>
-          <span className="font-display font-bold text-lg">HealthLink</span>
-        </Link>
-        <div className="flex items-center gap-2">
-          <Button variant="ghost" size="sm" asChild>
-            <Link to="/"><ArrowLeft className="h-4 w-4" /> Home</Link>
-          </Button>
-          <ThemeToggle />
-        </div>
-      </header>
-
-      <main className="relative z-10 px-6 md:px-10 pb-20">
-        <section className="max-w-5xl mx-auto pt-10 md:pt-16 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary mb-6"
-          >
+    <DashboardLayout>
+      <div className="max-w-6xl mx-auto space-y-6">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-3">
             <MessageCircle className="h-3 w-3" />
             Contact Us
-          </motion.div>
-          <h1 className="font-display text-4xl md:text-6xl font-extrabold tracking-tighter bg-gradient-to-br from-foreground via-foreground to-primary bg-clip-text text-transparent">
-            Let's talk about your health
-          </h1>
-          <p className="mt-5 max-w-2xl mx-auto text-base md:text-lg text-muted-foreground leading-relaxed">
+          </div>
+          <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tight">Get in touch</h1>
+          <p className="mt-2 text-muted-foreground max-w-2xl">
             Have questions about HealthLink, our IoT devices, or partnership opportunities? Send us a message and our team will get back to you shortly.
           </p>
-        </section>
+        </div>
 
-        <section className="max-w-6xl mx-auto mt-12 grid grid-cols-1 lg:grid-cols-5 gap-6">
-          {/* Contact channels */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
           <div className="lg:col-span-2 space-y-3">
             {channels.map((c, i) => (
               <motion.div
                 key={c.label}
                 initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.08 }}
               >
                 <Card className="glass-card p-4 flex items-start gap-3 hover:border-primary/30 transition-colors">
@@ -117,7 +90,6 @@ export default function ContactPage() {
             ))}
           </div>
 
-          {/* Form */}
           <div className="lg:col-span-3">
             <Card className="glass-card p-6 md:p-8">
               <h2 className="font-display text-xl font-bold mb-1">Send us a message</h2>
@@ -187,12 +159,8 @@ export default function ContactPage() {
               </form>
             </Card>
           </div>
-        </section>
-      </main>
-
-      <footer className="relative z-10 border-t border-border/50 py-5 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} HealthLink · IoT Health Monitor
-      </footer>
-    </div>
+        </div>
+      </div>
+    </DashboardLayout>
   );
 }
