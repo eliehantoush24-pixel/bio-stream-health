@@ -1,5 +1,5 @@
 import {
-  Activity, Heart, Users, Bell, Cpu, MessageCircle, User, LogOut, LayoutDashboard, Key, Mail,
+  Activity, Heart, Users, Bell, Cpu, MessageCircle, User, LogOut, LayoutDashboard, Key,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -15,7 +15,6 @@ const patientItems = [
   { titleKey: "Device", url: "/device", icon: Cpu },
   { titleKey: "API Keys", url: "/api-keys", icon: Key },
   { titleKey: "Chat", url: "/chat", icon: MessageCircle },
-  { titleKey: "Contact Us", url: "/contact", icon: Mail },
 ];
 
 const doctorItems = [
@@ -23,7 +22,6 @@ const doctorItems = [
   { titleKey: "Alerts", url: "/alerts", icon: Bell },
   { titleKey: "Chat", url: "/chat", icon: MessageCircle },
   { titleKey: "My Profile", url: "/profile", icon: User },
-  { titleKey: "Contact Us", url: "/contact", icon: Mail },
 ];
 
 export function AppSidebar() {

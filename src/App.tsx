@@ -14,7 +14,6 @@ import AlertsPage from "./pages/AlertsPage";
 import DevicePage from "./pages/DevicePage";
 import ApiKeysPage from "./pages/ApiKeysPage";
 import ChatPage from "./pages/ChatPage";
-import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,7 +36,6 @@ const App = () => (
             <Route path="/device" element={<DevicePage />} />
             <Route path="/api-keys" element={<ApiKeysPage />} />
             <Route path="/chat" element={<ChatPage />} />
-            <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
