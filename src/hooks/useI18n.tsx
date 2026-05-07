@@ -21,6 +21,7 @@ const translations: Record<string, Record<Lang, string>> = {
   "Device": { en: "Device", ar: "الجهاز" },
   "API Keys": { en: "API Keys", ar: "مفاتيح API" },
   "Chat": { en: "Chat", ar: "المحادثة" },
+  "Contact Us": { en: "Contact Us", ar: "اتصل بنا" },
   "Navigation": { en: "Navigation", ar: "التنقل" },
   "Logout": { en: "Logout", ar: "تسجيل الخروج" },
   "VitaLink": { en: "VitaLink", ar: "فيتالينك" },
