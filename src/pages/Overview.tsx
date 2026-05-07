@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useI18n } from "@/hooks/useI18n";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { LangToggle } from "@/components/LangToggle";
 
 export default function Overview() {
   const navigate = useNavigate();
@@ -54,7 +53,6 @@ export default function Overview() {
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <LangToggle />
           <ThemeToggle />
         </div>
       </header>
