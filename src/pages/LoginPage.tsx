@@ -10,18 +10,20 @@ import { motion } from "framer-motion";
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const [role, setRole] = useState<"patient" | "doctor">("patient");
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem("userRole", "patient");
-    navigate("/dashboard");
+    localStorage.setItem("userRole", role);
+    navigate(role === "doctor" ? "/doctor" : "/dashboard");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 relative">
-      {/* Soft ambient blobs — kept transparent so the global ECG background shows through */}
+    <div className="min-h-screen flex items-center justify-center bg-background p-4">
+      {/* Background decoration */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-accent/5 blur-3xl" />
       </div>
 
       <motion.div
@@ -36,7 +38,7 @@ export default function LoginPage() {
             <Activity className="h-6 w-6 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-display">HealthLink</h1>
+            <h1 className="text-2xl font-bold text-display">VitaLink</h1>
             <p className="text-xs text-muted-foreground">IoT Health Monitor</p>
           </div>
         </div>
@@ -57,11 +59,36 @@ export default function LoginPage() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="name@example.com" defaultValue="demo@healthlink.io" />
+                    <Input id="email" type="email" placeholder="name@example.com" defaultValue="demo@vitalink.io" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="password">Password</Label>
                     <Input id="password" type="password" defaultValue="password" />
+                  </div>
+
+                  {/* Role selection */}
+                  <div className="space-y-2">
+                    <Label>I am a</Label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <Button
+                        type="button"
+                        variant={role === "patient" ? "default" : "outline"}
+                        className="w-full"
+                        onClick={() => setRole("patient")}
+                      >
+                        <Heart className="h-4 w-4 mr-2" />
+                        Patient
+                      </Button>
+                      <Button
+                        type="button"
+                        variant={role === "doctor" ? "default" : "outline"}
+                        className="w-full"
+                        onClick={() => setRole("doctor")}
+                      >
+                        <Activity className="h-4 w-4 mr-2" />
+                        Doctor
+                      </Button>
+                    </div>
                   </div>
 
                   <Button type="submit" className="w-full">
@@ -89,6 +116,17 @@ export default function LoginPage() {
                   <div className="space-y-2">
                     <Label>Password</Label>
                     <Input type="password" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label>I am a</Label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <Button type="button" variant={role === "patient" ? "default" : "outline"} className="w-full" onClick={() => setRole("patient")}>
+                        Patient
+                      </Button>
+                      <Button type="button" variant={role === "doctor" ? "default" : "outline"} className="w-full" onClick={() => setRole("doctor")}>
+                        Doctor
+                      </Button>
+                    </div>
                   </div>
                   <Button type="submit" className="w-full">Create Account</Button>
                 </form>

@@ -130,19 +130,19 @@ const translations: Record<string, Record<Lang, string>> = {
 const I18nContext = createContext<I18nContextType | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
-  const dir: "ltr" | "rtl" = "ltr";
+  const [lang, setLang] = useState<Lang>(() => {
+    return (localStorage.getItem("lang") as Lang) || "en";
+  });
+
+  const dir = lang === "ar" ? "rtl" : "ltr";
 
   useEffect(() => {
-    localStorage.setItem("lang", "en");
-    document.documentElement.dir = "ltr";
-    document.documentElement.lang = "en";
-  }, []);
+    localStorage.setItem("lang", lang);
+    document.documentElement.dir = dir;
+    document.documentElement.lang = lang;
+  }, [lang, dir]);
 
-  // Locked to English — Arabic support has been removed.
-  const setLang = (_: Lang) => setLangState("en");
-
-  const t = (key: string) => translations[key]?.en || key;
+  const t = (key: string) => translations[key]?.[lang] || key;
 
   return (
     <I18nContext.Provider value={{ lang, setLang, t, dir }}>

@@ -1,5 +1,5 @@
 import {
-  Activity, Heart, Users, Bell, Cpu, MessageCircle, User, LogOut, LayoutDashboard, Key, Mail,
+  Activity, Heart, Users, Bell, Cpu, MessageCircle, User, LogOut, LayoutDashboard, Key,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
@@ -15,15 +15,13 @@ const patientItems = [
   { titleKey: "Device", url: "/device", icon: Cpu },
   { titleKey: "API Keys", url: "/api-keys", icon: Key },
   { titleKey: "Chat", url: "/chat", icon: MessageCircle },
-  { titleKey: "Contact Us", url: "/contact", icon: Mail },
 ];
 
 const doctorItems = [
   { titleKey: "Doctor View", url: "/doctor", icon: Users },
   { titleKey: "Alerts", url: "/alerts", icon: Bell },
-  { titleKey: "My Profile", url: "/profile", icon: User },
   { titleKey: "Chat", url: "/chat", icon: MessageCircle },
-  { titleKey: "Contact Us", url: "/contact", icon: Mail },
+  { titleKey: "My Profile", url: "/profile", icon: User },
 ];
 
 export function AppSidebar() {
@@ -44,7 +42,7 @@ export function AppSidebar() {
             </div>
             {!collapsed && (
               <div>
-                <h2 className="text-sm font-semibold text-sidebar-accent-foreground font-display">{t("HealthLink")}</h2>
+                <h2 className="text-sm font-semibold text-sidebar-accent-foreground font-display">{t("VitaLink")}</h2>
                 <p className="text-[10px] text-sidebar-foreground">{t("Health Monitor")}</p>
               </div>
             )}
