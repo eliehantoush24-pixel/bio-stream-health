@@ -4,7 +4,6 @@ import { Bell } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { LangToggle } from "@/components/LangToggle";
 import { useI18n } from "@/hooks/useI18n";
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -22,7 +21,6 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
               <span className="text-sm text-muted-foreground hidden sm:inline">{t("IoT Health Monitor")}</span>
             </div>
             <div className="flex items-center gap-2">
-              <LangToggle />
               <ThemeToggle />
               <Button variant="ghost" size="icon" className="relative" onClick={() => navigate("/alerts")}>
                 <Bell className="h-4 w-4" />

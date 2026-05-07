@@ -1,15 +1,10 @@
-import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-
-type Lang = "en" | "ar";
+import { createContext, useContext, ReactNode } from "react";
 
 interface I18nContextType {
-  lang: Lang;
-  setLang: (lang: Lang) => void;
   t: (key: string) => string;
-  dir: "ltr" | "rtl";
 }
 
-const translations: Record<string, Record<Lang, string>> = {
+const translations: Record<string, Record<string, string>> = {
   // Header & layout
   "IoT Health Monitor": { en: "IoT Health Monitor", ar: "مراقب الصحة إنترنت الأشياء" },
 
@@ -130,22 +125,10 @@ const translations: Record<string, Record<Lang, string>> = {
 const I18nContext = createContext<I18nContextType | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>(() => {
-    return (localStorage.getItem("lang") as Lang) || "en";
-  });
-
-  const dir = lang === "ar" ? "rtl" : "ltr";
-
-  useEffect(() => {
-    localStorage.setItem("lang", lang);
-    document.documentElement.dir = dir;
-    document.documentElement.lang = lang;
-  }, [lang, dir]);
-
-  const t = (key: string) => translations[key]?.[lang] || key;
+  const t = (key: string) => translations[key]?.["en"] || key;
 
   return (
-    <I18nContext.Provider value={{ lang, setLang, t, dir }}>
+    <I18nContext.Provider value={{ t }}>
       {children}
     </I18nContext.Provider>
   );

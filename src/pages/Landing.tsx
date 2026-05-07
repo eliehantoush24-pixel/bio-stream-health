@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useI18n } from "@/hooks/useI18n";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import { LangToggle } from "@/components/LangToggle";
 import bg from "@/assets/medical-bg.jpg";
 
 export default function Landing() {
@@ -49,7 +48,6 @@ export default function Landing() {
           <span className="font-display font-bold text-lg">HealthLink</span>
         </div>
         <div className="flex items-center gap-2">
-          <LangToggle />
           <ThemeToggle />
         </div>
       </header>
