@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Activity, Heart } from "lucide-react";
+import { Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -10,12 +9,11 @@ import { motion } from "framer-motion";
 
 export default function LoginPage() {
   const navigate = useNavigate();
-  const [role, setRole] = useState<"patient" | "doctor">("patient");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    localStorage.setItem("userRole", role);
-    navigate(role === "doctor" ? "/doctor" : "/dashboard");
+    localStorage.setItem("userRole", "patient");
+    navigate("/dashboard");
   };
 
   return (
@@ -66,31 +64,6 @@ export default function LoginPage() {
                     <Input id="password" type="password" defaultValue="password" />
                   </div>
 
-                  {/* Role selection */}
-                  <div className="space-y-2">
-                    <Label>I am a</Label>
-                    <div className="grid grid-cols-2 gap-2">
-                      <Button
-                        type="button"
-                        variant={role === "patient" ? "default" : "outline"}
-                        className="w-full"
-                        onClick={() => setRole("patient")}
-                      >
-                        <Heart className="h-4 w-4 mr-2" />
-                        Patient
-                      </Button>
-                      <Button
-                        type="button"
-                        variant={role === "doctor" ? "default" : "outline"}
-                        className="w-full"
-                        onClick={() => setRole("doctor")}
-                      >
-                        <Activity className="h-4 w-4 mr-2" />
-                        Doctor
-                      </Button>
-                    </div>
-                  </div>
-
                   <Button type="submit" className="w-full">
                     Sign In
                   </Button>
@@ -116,17 +89,6 @@ export default function LoginPage() {
                   <div className="space-y-2">
                     <Label>Password</Label>
                     <Input type="password" />
-                  </div>
-                  <div className="space-y-2">
-                    <Label>I am a</Label>
-                    <div className="grid grid-cols-2 gap-2">
-                      <Button type="button" variant={role === "patient" ? "default" : "outline"} className="w-full" onClick={() => setRole("patient")}>
-                        Patient
-                      </Button>
-                      <Button type="button" variant={role === "doctor" ? "default" : "outline"} className="w-full" onClick={() => setRole("doctor")}>
-                        Doctor
-                      </Button>
-                    </div>
                   </div>
                   <Button type="submit" className="w-full">Create Account</Button>
                 </form>
