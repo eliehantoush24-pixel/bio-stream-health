@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useI18n } from "@/hooks/useI18n";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import bg from "@/assets/medical-bg.jpg";
+
 
 export default function Landing() {
   const navigate = useNavigate();
@@ -29,15 +29,8 @@ export default function Landing() {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
-      {/* Background image with adaptive overlay */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${bg})` }}
-        aria-hidden="true"
-      />
-      {/* Layered gradient overlays for a richer medical-tech atmosphere */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background/85 via-background/70 to-primary/10 dark:from-background/95 dark:via-background/85 dark:to-primary/20 backdrop-blur-[3px]" aria-hidden="true" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,hsl(var(--spo2)/0.15),transparent_50%),radial-gradient(ellipse_at_bottom_left,hsl(var(--heart)/0.12),transparent_50%)]" aria-hidden="true" />
+      {/* Subtle accent glows on top of the global ECG/medical background */}
+      <div className="absolute inset-0 -z-10 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,hsl(var(--spo2)/0.10),transparent_55%),radial-gradient(ellipse_at_bottom_left,hsl(var(--heart)/0.08),transparent_55%)]" aria-hidden="true" />
 
       {/* Header — no login button here, single CTA lives in hero */}
       <header className="relative z-10 flex items-center justify-between px-6 py-4 md:px-10">
