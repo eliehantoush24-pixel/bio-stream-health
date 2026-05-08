@@ -36,7 +36,7 @@ export default function LoginPage() {
             <Activity className="h-6 w-6 text-primary-foreground" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold text-display">VitaLink</h1>
+            <h1 className="text-2xl font-bold text-display">HealthLink</h1>
             <p className="text-xs text-muted-foreground">IoT Health Monitor</p>
           </div>
         </div>
@@ -57,7 +57,7 @@ export default function LoginPage() {
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="name@example.com" defaultValue="demo@vitalink.io" />
+                    <Input id="email" type="email" placeholder="name@example.com" defaultValue="demo@healthlink.io" />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="password">Password</Label>
