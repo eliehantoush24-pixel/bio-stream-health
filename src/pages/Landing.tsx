@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useI18n } from "@/hooks/useI18n";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import bg from "@/assets/medical-bg.jpg";
+
 
 export default function Landing() {
   const navigate = useNavigate();
