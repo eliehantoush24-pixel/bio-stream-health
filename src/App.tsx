@@ -14,6 +14,7 @@ import AlertsPage from "./pages/AlertsPage";
 import DevicePage from "./pages/DevicePage";
 import ApiKeysPage from "./pages/ApiKeysPage";
 import ChatPage from "./pages/ChatPage";
+import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
