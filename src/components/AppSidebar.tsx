@@ -1,5 +1,5 @@
 import {
-  Activity, Heart, Users, Bell, Cpu, MessageCircle, User, LogOut, LayoutDashboard, Key,
+  Activity, Heart, Users, Bell, Cpu, MessageCircle, User, LogOut, LayoutDashboard, Key, Mail,
 } from "lucide-react";
 import { NavLink } from "@/components/NavLink";
 import { useLocation } from "react-router-dom";
