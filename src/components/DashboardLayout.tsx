@@ -9,6 +9,8 @@ import { useI18n } from "@/hooks/useI18n";
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   const { t } = useI18n();
+  const role = (typeof window !== "undefined" && localStorage.getItem("userRole")) === "doctor" ? "doctor" : "patient";
+
 
   return (
     <SidebarProvider>
@@ -22,10 +24,12 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             </div>
             <div className="flex items-center gap-2">
               <ThemeToggle />
-              <Button variant="ghost" size="icon" className="relative" onClick={() => navigate("/alerts")}>
-                <Bell className="h-4 w-4" />
-                <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-critical" />
-              </Button>
+              {role === "doctor" && (
+                <Button variant="ghost" size="icon" className="relative" onClick={() => navigate("/alerts")}>
+                  <Bell className="h-4 w-4" />
+                  <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-critical" />
+                </Button>
+              )}
               <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-semibold text-primary">
                 AP
               </div>
