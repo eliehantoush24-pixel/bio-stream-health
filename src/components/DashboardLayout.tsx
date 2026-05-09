@@ -30,9 +30,11 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
                   <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-critical" />
                 </Button>
               )}
-              <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-semibold text-primary">
-                AP
-              </div>
+              {role === "doctor" && (
+                <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center text-xs font-semibold text-primary">
+                  AP
+                </div>
+              )}
             </div>
           </header>
           <main className="flex-1 overflow-auto p-4 md:p-6">{children}</main>
