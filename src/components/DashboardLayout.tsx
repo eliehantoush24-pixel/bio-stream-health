@@ -9,6 +9,8 @@ import { useI18n } from "@/hooks/useI18n";
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
   const { t } = useI18n();
+  const role = (typeof window !== "undefined" && localStorage.getItem("userRole")) === "doctor" ? "doctor" : "patient";
+
 
   return (
     <SidebarProvider>
