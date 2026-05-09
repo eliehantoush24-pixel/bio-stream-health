@@ -21,8 +21,8 @@ const patientItems = [
 const doctorItems = [
   { titleKey: "Doctor View", url: "/doctor", icon: Users },
   { titleKey: "Alerts", url: "/alerts", icon: Bell },
-  { titleKey: "Chat", url: "/chat", icon: MessageCircle },
   { titleKey: "My Profile", url: "/profile", icon: User },
+  { titleKey: "Chat", url: "/chat", icon: MessageCircle },
   { titleKey: "Contact Us", url: "/contact", icon: Mail },
 ];
 
